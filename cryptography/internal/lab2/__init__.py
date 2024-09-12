@@ -6,8 +6,8 @@ from cryptography.internal.lab2.lab2 import (
 )
 
 __all__ = (
-    generate_primes,
-    generate_keys,
-    encrypt,
-    decrypt,
+    "generate_primes",
+    "generate_keys",
+    "encrypt",
+    "decrypt",
 )

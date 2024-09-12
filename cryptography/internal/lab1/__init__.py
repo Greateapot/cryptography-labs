@@ -1,13 +1,11 @@
 from cryptography.internal.lab1.lab1 import (
-    Alphabet,
-    Table,
-    AlgorithmData,
     Algorithm,
+    RU_ALGORITHM,
+    EN_ALGORITHM,
 )
 
 __all__ = (
-    Alphabet,
-    Table,
-    AlgorithmData,
-    Algorithm,
+    "Algorithm",
+    "RU_ALGORITHM",
+    "EN_ALGORITHM",
 )
