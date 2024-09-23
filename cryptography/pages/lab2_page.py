@@ -5,7 +5,7 @@ from cryptography.backend import Lab2State
 
 
 @template(route="/lab2", title="Лаб. №2")
-def lab2() -> rx.Component:
+def lab2_page() -> rx.Component:
     return rx.vstack(
         rx.heading("Лабораторная работа №2. Алгоритм RSA", size="6"),
         rx.blockquote(
@@ -16,37 +16,11 @@ def lab2() -> rx.Component:
         ),
         rx.button(
             rx.text(
-                "Сгенерировать простые числа",
+                "Сгенерировать ключи",
                 size="3",
             ),
             variant="outline",
-            on_click=Lab2State.generate_primes,
-        ),
-        rx.cond(
-            Lab2State.primes_generated,
-            rx.box(
-                rx.markdown(
-                    f"`p`: {Lab2State.p}",
-                    width="100%",
-                ),
-                rx.markdown(
-                    f"`q`: {Lab2State.q}",
-                    width="100%",
-                ),
-            ),
-            rx.box(),
-        ),
-        rx.cond(
-            Lab2State.primes_generated,
-            rx.button(
-                rx.text(
-                    "Сгенерировать RSA ключи",
-                    size="3",
-                ),
-                variant="outline",
-                on_click=Lab2State.generate_keys,
-            ),
-            rx.box(),
+            on_click=Lab2State.generate_keys,
         ),
         rx.cond(
             Lab2State.keys_generated,

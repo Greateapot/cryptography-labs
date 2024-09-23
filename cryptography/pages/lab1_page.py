@@ -31,7 +31,7 @@ def table(title: str, iterable: rx.Var) -> rx.Component:
 
 
 @template(route="/lab1", title="Лаб. №1")
-def lab1() -> rx.Component:
+def lab1_page() -> rx.Component:
     return rx.vstack(
         rx.heading("Лабораторная работа №1. Шифры перестановки и замены", size="6"),
         rx.blockquote(

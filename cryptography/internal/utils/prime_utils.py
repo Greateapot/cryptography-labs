@@ -89,8 +89,8 @@ def generate_prime(n: int = 512) -> int:
 
 
 __all__ = (
-    generate_prime,
-    is_prime,
-    is_prime_miller_rabin,
-    is_prime_trial_division,
+    "generate_prime",
+    "is_prime",
+    "is_prime_miller_rabin",
+    "is_prime_trial_division",
 )

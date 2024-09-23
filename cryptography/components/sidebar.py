@@ -77,6 +77,7 @@ def sidebar_item(text: str, url: str) -> rx.Component:
                 ("Домашняя страница", sidebar_item_icon("home")),
                 ("Лаб. №1", sidebar_item_icon("book-open")),
                 ("Лаб. №2", sidebar_item_icon("book-open")),
+                ("Лаб. №3", sidebar_item_icon("book-open")),
                 ("Настройки", sidebar_item_icon("settings")),
                 sidebar_item_icon("layout-dashboard"),
             ),
@@ -132,6 +133,7 @@ def sidebar() -> rx.Component:
         "/",
         "/lab1",
         "/lab2",
+        "/lab3",
         "/settings",
     ]
 
@@ -170,7 +172,7 @@ def sidebar() -> rx.Component:
             height="100dvh",
             padding="1em",
         ),
-        display=["none", "none", "none", "none", "flex"],
+        display=["none", "none", "none", "none", "none", "flex"],
         max_width=styles.sidebar_width,
         width="auto",
         height="100%",

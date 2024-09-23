@@ -1,4 +1,4 @@
-from cryptography.internal.lab1.lab1 import RU_ALGORITHM
+from cryptography.internal.lab1 import RU_ALGORITHM
 
 
 def lab1_test() -> None:
@@ -17,6 +17,7 @@ def lab1_test() -> None:
 
     decrypted_message = algorithm.decrypt(encrypted_message, (left_table, right_table))
     print(f"decrypted_message: {decrypted_message}")
+    ...
 
 
 if __name__ == "__main__":

@@ -61,7 +61,14 @@ class Lab1State(rx.State):
         if message is None:
             return  # do nothing
 
-        self.encrypted_message = self.algorithm().encrypt(
+        algorithm = self.algorithm()
+
+        for char in message:
+            if char not in algorithm.characters:
+                self.encrypted_message = "Сообщение содержит недопустимые символы!"
+                return
+
+        self.encrypted_message = algorithm.encrypt(
             message,
             (self._left_table, self._right_table),
         )

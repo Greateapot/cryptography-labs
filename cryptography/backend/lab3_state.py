@@ -1,6 +1,6 @@
 import reflex as rx
 
-from cryptography.internal.lab2 import (
+from cryptography.internal.lab3 import (
     PrivateKey,
     PublicKey,
     generate_keys,
@@ -9,7 +9,7 @@ from cryptography.internal.lab2 import (
 )
 
 
-class Lab2State(rx.State):
+class Lab3State(rx.State):
     # backend-only vars
     _public_key: PublicKey | None = None
     _private_key: PrivateKey | None = None
@@ -22,16 +22,20 @@ class Lab2State(rx.State):
     # vars
 
     @rx.var
-    def d(self) -> str:
-        return str(self._private_key.d) if self._private_key is not None else ""
+    def p(self) -> str:
+        return str(self._public_key.p) if self._public_key is not None else ""
 
     @rx.var
-    def e(self) -> str:
-        return str(self._public_key.e) if self._public_key is not None else ""
+    def g(self) -> str:
+        return str(self._public_key.g) if self._public_key is not None else ""
 
     @rx.var
-    def n(self) -> str:
-        return str(self._public_key.n) if self._public_key is not None else ""
+    def y(self) -> str:
+        return str(self._public_key.y) if self._public_key is not None else ""
+
+    @rx.var
+    def x(self) -> str:
+        return str(self._private_key.x) if self._private_key is not None else ""
 
     @rx.var
     def keys_generated(self) -> bool:

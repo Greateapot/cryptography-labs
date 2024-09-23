@@ -1,12 +1,14 @@
 from cryptography.internal.lab2.lab2 import (
-    generate_primes,
+    PrivateKey,
+    PublicKey,
     generate_keys,
     encrypt,
     decrypt,
 )
 
 __all__ = (
-    "generate_primes",
+    "PrivateKey",
+    "PublicKey",
     "generate_keys",
     "encrypt",
     "decrypt",
