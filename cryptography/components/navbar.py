@@ -32,6 +32,7 @@ def menu_item(text: str, url: str) -> rx.Component:
                 ("Лаб. №1", menu_item_icon("book-open")),
                 ("Лаб. №2", menu_item_icon("book-open")),
                 ("Лаб. №3", menu_item_icon("book-open")),
+                ("Лаб. №4", menu_item_icon("book-open")),
                 ("Настройки", menu_item_icon("settings")),
                 menu_item_icon("layout-dashboard"),
             ),
@@ -111,6 +112,7 @@ def menu_button() -> rx.Component:
         "/lab1",
         "/lab2",
         "/lab3",
+        "/lab4",
         "/settings",
     ]
 

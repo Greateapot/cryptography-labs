@@ -78,6 +78,7 @@ def sidebar_item(text: str, url: str) -> rx.Component:
                 ("Лаб. №1", sidebar_item_icon("book-open")),
                 ("Лаб. №2", sidebar_item_icon("book-open")),
                 ("Лаб. №3", sidebar_item_icon("book-open")),
+                ("Лаб. №4", sidebar_item_icon("book-open")),
                 ("Настройки", sidebar_item_icon("settings")),
                 sidebar_item_icon("layout-dashboard"),
             ),
@@ -134,6 +135,7 @@ def sidebar() -> rx.Component:
         "/lab1",
         "/lab2",
         "/lab3",
+        "/lab4",
         "/settings",
     ]
 

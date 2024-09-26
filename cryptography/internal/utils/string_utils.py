@@ -1,7 +1,7 @@
 import base64
 
 
-def encode_str(string: str, bits: int, encoding: str = "utf-8") -> bytes:
+def encode_str(string: str, bits: int, encoding: str = "utf-8") -> list[int]:
     byte_array = bytearray(string, encoding)
 
     z = []
@@ -17,7 +17,7 @@ def encode_str(string: str, bits: int, encoding: str = "utf-8") -> bytes:
     return z
 
 
-def decode_str(bytes: bytes, bits: int, encoding: str = "utf-8") -> str:
+def decode_str(bytes: list[int], bits: int, encoding: str = "utf-8") -> str:
     bytes_array = []
 
     k = bits // 8
