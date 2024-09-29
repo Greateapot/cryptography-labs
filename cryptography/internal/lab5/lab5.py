@@ -1,6 +1,4 @@
 from cryptography.internal.utils import (
-    # decode_b64,
-    # encode_b64,
     bytes_to_bits,
     bits_to_bytes,
 )
