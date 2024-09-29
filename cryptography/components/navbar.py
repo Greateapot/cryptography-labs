@@ -1,6 +1,7 @@
 """Navbar component for the app."""
 
 import reflex as rx
+from reflex.page import get_decorated_pages
 
 from cryptography import styles
 
@@ -29,12 +30,8 @@ def menu_item(text: str, url: str) -> rx.Component:
             rx.match(
                 text,
                 ("Домашняя страница", menu_item_icon("home")),
-                ("Лаб. №1", menu_item_icon("book-open")),
-                ("Лаб. №2", menu_item_icon("book-open")),
-                ("Лаб. №3", menu_item_icon("book-open")),
-                ("Лаб. №4", menu_item_icon("book-open")),
                 ("Настройки", menu_item_icon("settings")),
-                menu_item_icon("layout-dashboard"),
+                menu_item_icon("book-open"),
             ),
             rx.text(text, size="4", weight="regular"),
             color=rx.cond(
@@ -81,18 +78,6 @@ def navbar_footer() -> rx.Component:
         The navbar footer component.
     """
     return rx.hstack(
-        # rx.link(
-        #     rx.text("Docs", size="3"),
-        #     href="https://reflex.dev/docs/getting-started/introduction/",
-        #     color_scheme="gray",
-        #     underline="none",
-        # ),
-        # rx.link(
-        #     rx.text("Blog", size="3"),
-        #     href="https://reflex.dev/blog/",
-        #     color_scheme="gray",
-        #     underline="none",
-        # ),
         rx.spacer(),
         rx.color_mode.button(style={"opacity": "0.8", "scale": "0.95"}),
         justify="start",
@@ -103,32 +88,6 @@ def navbar_footer() -> rx.Component:
 
 
 def menu_button() -> rx.Component:
-    # Get all the decorated pages and add them to the menu.
-    from reflex.page import get_decorated_pages
-
-    # The ordered page routes.
-    ordered_page_routes = [
-        "/",
-        "/lab1",
-        "/lab2",
-        "/lab3",
-        "/lab4",
-        "/settings",
-    ]
-
-    # Get the decorated pages.
-    pages = get_decorated_pages()
-
-    # Include all pages even if they are not in the ordered_page_routes.
-    ordered_pages = sorted(
-        pages,
-        key=lambda page: (
-            ordered_page_routes.index(page["route"])
-            if page["route"] in ordered_page_routes
-            else len(ordered_page_routes)
-        ),
-    )
-
     return rx.drawer.root(
         rx.drawer.trigger(
             rx.icon("align-justify"),
@@ -151,7 +110,7 @@ def menu_button() -> rx.Component:
                             ),
                             url=page["route"],
                         )
-                        for page in ordered_pages
+                        for page in get_decorated_pages()
                     ],
                     rx.spacer(),
                     navbar_footer(),
@@ -190,7 +149,14 @@ def navbar() -> rx.Component:
             padding_y="1.25em",
             padding_x=["1em", "1em", "2em"],
         ),
-        display=["block", "block", "block", "block", "block", "none"],
+        display=[
+            "block",
+            "block",
+            "block",
+            "block",
+            "block",
+            "none",
+        ],
         position="sticky",
         background_color=rx.color("gray", 1),
         top="0px",

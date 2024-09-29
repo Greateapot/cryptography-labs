@@ -10,6 +10,8 @@ from cryptography.internal.utils.string_utils import (
     encode_str,
     decode_b64,
     decode_str,
+    bytes_to_bits,
+    bits_to_bytes,
 )
 
 
@@ -23,4 +25,6 @@ __all__ = (
     "decode_str",
     "encode_b64",
     "decode_b64",
+    "bytes_to_bits",
+    "bits_to_bytes",
 )

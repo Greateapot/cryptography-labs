@@ -1,5 +1,3 @@
-"""Welcome to Reflex!."""
-
 import reflex as rx
 
 # Import all the pages.

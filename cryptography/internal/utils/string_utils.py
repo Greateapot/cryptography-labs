@@ -44,10 +44,20 @@ def encode_b64(cipher: list[int], bits: int) -> str:
     return base64.encodebytes(b).decode()
 
 
-def decode_b64(b64: str, bits: int) -> str:
+def decode_b64(b64: str, bits: int) -> list[int]:
     b = base64.decodebytes(b64.encode())
     xs = bits * 2 // 8
     return [int.from_bytes(b[i * xs : i * xs + xs]) for i in range(len(b) // xs)]
+
+
+def bytes_to_bits(bytes: list[int]) -> list[int]:
+    bits = "".join(format(byte, "08b") for byte in bytes)
+    return [int(bit) for bit in bits]
+
+
+def bits_to_bytes(bits: list[int]) -> list[int]:
+    byte_chunks = [bits[i : i + 8] for i in range(0, len(bits), 8)]
+    return [int("".join(map(str, byte)), 2) for byte in byte_chunks]
 
 
 __all__ = (
@@ -55,4 +65,6 @@ __all__ = (
     "decode_str",
     "encode_b64",
     "decode_b64",
+    "bytes_to_bits",
+    "bits_to_bytes",
 )
