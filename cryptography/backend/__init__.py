@@ -4,6 +4,7 @@ from cryptography.backend.lab3_state import Lab3State
 from cryptography.backend.lab4_state import Lab4State
 from cryptography.backend.lab5_state import Lab5State
 from cryptography.backend.lab6_state import Lab6State
+from cryptography.backend.lab7_state import Lab7State
 
 __all__ = (
     "Lab1State",
@@ -12,4 +13,5 @@ __all__ = (
     "Lab4State",
     "Lab5State",
     "Lab6State",
+    "Lab7State",
 )
