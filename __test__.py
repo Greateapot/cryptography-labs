@@ -4,8 +4,9 @@ from cryptography.internal.test import (  # noqa: F401
     lab3_test,
     lab4_test,
     lab5_test,
+    lab6_test,
 )
 
 
 if __name__ == "__main__":
-    lab5_test()
+    lab6_test()

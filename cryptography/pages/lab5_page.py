@@ -32,15 +32,15 @@ def lab5_page() -> rx.Component:
                     width="20%",
                 ),
             ),
-            on_submit=Lab5State.encode,
+            on_submit=Lab5State.encrypt,
             width="100%",
         ),
         rx.form.root(
             rx.hstack(
                 rx.input(
-                    name="encoded_message",
-                    value=Lab5State.encoded_message,
-                    on_change=Lab5State.set_encoded_message,
+                    name="encrypted_message",
+                    value=Lab5State.encrypted_message,
+                    on_change=Lab5State.set_encrypted_message,
                     placeholder="Закодированное сообщение...",
                     required=True,
                     width="80%",
@@ -51,14 +51,14 @@ def lab5_page() -> rx.Component:
                     width="20%",
                 ),
             ),
-            on_submit=Lab5State.decode,
+            on_submit=Lab5State.decrypt,
             width="100%",
         ),
         rx.form.root(
             rx.hstack(
                 rx.input(
-                    name="decoded_message",
-                    value=Lab5State.decoded_message,
+                    name="decrypted_message",
+                    value=Lab5State.decrypted_message,
                     placeholder="Декодированное сообщение...",
                     read_only=True,
                     width="100%",

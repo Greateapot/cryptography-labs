@@ -3,6 +3,7 @@ from cryptography.internal.lab2.lab2_test import lab2_test
 from cryptography.internal.lab3.lab3_test import lab3_test
 from cryptography.internal.lab4.lab4_test import lab4_test
 from cryptography.internal.lab5.lab5_test import lab5_test
+from cryptography.internal.lab6.lab6_test import lab6_test
 
 
 __all__ = (
@@ -11,4 +12,5 @@ __all__ = (
     "lab3_test",
     "lab4_test",
     "lab5_test",
+    "lab6_test",
 )

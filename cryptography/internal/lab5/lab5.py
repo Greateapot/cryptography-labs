@@ -16,13 +16,13 @@ def calculate_dividend(dividend: list[int], divisor: list[int]) -> list[int]:
     return dividend
 
 
-def encode_block(data: list[int], polynome: list[int]) -> list[int]:
+def encrypt_block(data: list[int], polynome: list[int]) -> list[int]:
     data = list(data) + [0] * (len(polynome) - 1)
     remainder = calculate_dividend(data, polynome)
     return data[: len(data) - len(polynome) + 1] + remainder
 
 
-def decode_block(received: list[int], polynome: list[int]) -> list[int]:
+def decrypt_block(received: list[int], polynome: list[int]) -> list[int]:
     syndrome = calculate_dividend(received, polynome)
 
     if any(syndrome):
@@ -36,35 +36,35 @@ def decode_block(received: list[int], polynome: list[int]) -> list[int]:
     return received[: len(received) - len(polynome) + 1]
 
 
-def encode(string: str, polynome: list[int]) -> str:
+def encrypt(string: str, polynome: list[int]) -> str:
     binary = bytes_to_bits(string.encode())
 
-    encoded_binary = []
+    encrypted_binary = []
     for i in range(0, len(binary), 8):
         data_block = binary[i : i + 8]
         if len(data_block) < 8:
             data_block += [0] * (8 - len(data_block))
-        encoded_block = encode_block(data_block, polynome)
-        encoded_binary.extend(encoded_block)
+        encrypted_block = encrypt_block(data_block, polynome)
+        encrypted_binary.extend(encrypted_block)
 
-    encoded_string = "".join(map(str, encoded_binary))
-    return encoded_string
+    encrypted_string = "".join(map(str, encrypted_binary))
+    return encrypted_string
 
 
-def decode(encoded_string: str, polynome: list[int]) -> str:
-    encoded_binary = list(map(int, encoded_string))
+def decrypt(encrypted_string: str, polynome: list[int]) -> str:
+    encrypted_binary = list(map(int, encrypted_string))
 
-    decoded_binary = []
-    for i in range(0, len(encoded_binary), 8 + 7):
-        received_block = encoded_binary[i : i + 8 + 7]
-        decoded_block = decode_block(received_block, polynome)
-        decoded_binary.extend(decoded_block)
+    decrypted_binary = []
+    for i in range(0, len(encrypted_binary), 8 + 7):
+        received_block = encrypted_binary[i : i + 8 + 7]
+        decrypted_block = decrypt_block(received_block, polynome)
+        decrypted_binary.extend(decrypted_block)
 
-    decoded_string = bytes(bits_to_bytes(decoded_binary)).decode()
-    return decoded_string
+    decrypted_string = bytes(bits_to_bytes(decrypted_binary)).decode()
+    return decrypted_string
 
 
 __all__ = (
-    "encode",
-    "decode",
+    "encrypt",
+    "decrypt",
 )

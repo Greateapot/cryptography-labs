@@ -1,8 +1,8 @@
 import reflex as rx
 
 from cryptography.internal.lab4 import (
-    encrypt as des_encrypt,
-    decrypt as des_decrypt,
+    encrypt,
+    decrypt,
 )
 
 
@@ -53,7 +53,7 @@ class Lab4State(rx.State):
         file = files[0]
         upload_data = await file.read()
 
-        encrypted_data = des_encrypt(
+        encrypted_data = encrypt(
             self._key.encode(),
             upload_data,
             rounds=self._rounds,
@@ -70,7 +70,7 @@ class Lab4State(rx.State):
         file = files[0]
         upload_data = await file.read()
 
-        decrypted_data = des_decrypt(
+        decrypted_data = decrypt(
             self._key.encode(),
             upload_data,
             rounds=self._rounds,

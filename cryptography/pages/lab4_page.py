@@ -3,7 +3,7 @@ import reflex as rx
 from cryptography.templates import template
 from cryptography.backend import Lab4State
 
-UPLOAD_TAG = "upload_f"
+UPLOAD_TAG = "lab4_upload_file"
 
 
 @template(route="/lab4", title="Лаб. №4")
@@ -51,22 +51,22 @@ def lab4_page() -> rx.Component:
         rx.upload(
             rx.vstack(
                 rx.hstack(rx.foreach(rx.selected_files(UPLOAD_TAG), rx.text)),
-                rx.text("Drag and drop files here or click to select files"),
+                rx.text("Перетащите сюда файл или нажмите для выбора файла"),
             ),
             id=UPLOAD_TAG,
             max_files=1,
         ),
         rx.hstack(
             rx.button(
-                "Encrypt",
+                "Зашифровать",
                 on_click=Lab4State.encrypt(rx.upload_files(upload_id=UPLOAD_TAG)),
             ),
             rx.button(
-                "Decrypt",
+                "Расшифровать",
                 on_click=Lab4State.decrypt(rx.upload_files(upload_id=UPLOAD_TAG)),
             ),
             rx.button(
-                "Clear",
+                "Сбросить выбранный файл",
                 on_click=rx.clear_selected_files(UPLOAD_TAG),
             ),
             width="50%",

@@ -1,6 +1,6 @@
 from cryptography.internal.lab5.lab5 import (
-    encode,
-    decode,
+    encrypt,
+    decrypt,
 )
 
 
@@ -13,7 +13,7 @@ def lab5_test() -> None:
     polynome = [1, 0, 0, 0, 1, 0, 0, 1]  # Порождающий полином (x^7 + x^3 + 1)
 
     ...
-    encoded_text = encode(text, polynome)
+    encoded_text = encrypt(text, polynome)
     print("Закодированный текст:", repr(encoded_text))
 
     ...
@@ -23,7 +23,7 @@ def lab5_test() -> None:
     print("Поврежденный текст:", repr(encoded_text))
 
     ...
-    decoded_text = decode(_encoded_text, polynome)
+    decoded_text = decrypt(_encoded_text, polynome)
     print("Декодированный текст:", decoded_text)
 
     ...
