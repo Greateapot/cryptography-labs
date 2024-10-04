@@ -31,16 +31,16 @@ class Lab4State(rx.State):
         return self._key
 
     # / slider event handlers
-    def on_rounds_commit(self, rounds: int) -> None:
-        self._rounds = rounds
+    def on_rounds_commit(self, rounds: list[int] | int) -> None:
+        self._rounds = rounds if isinstance(rounds, int) else rounds[0]
         ...  # return None
 
-    def on_block_size_commit(self, block_size: int) -> None:
-        self._block_size = block_size
+    def on_block_size_commit(self, block_size: list[int] | int) -> None:
+        self._block_size = block_size if isinstance(block_size, int) else block_size[0]
         ...  # return None
 
-    def on_key_size_commit(self, key_size: int) -> None:
-        self._key_size = key_size
+    def on_key_size_commit(self, key_size: list[int] | int) -> None:
+        self._key_size = key_size if isinstance(key_size, int) else key_size[0]
         ...  # return None
 
     # / input event handlers

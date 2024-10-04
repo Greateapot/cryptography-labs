@@ -5,21 +5,30 @@ from cryptography.internal.lab6 import (
 
 
 def lab6_test() -> None:
-    input_file = "uploaded_files/large.txt"
-    encoded_file = "uploaded_files/compressed_large.haffman.lzw"
-    decoded_file = "uploaded_files/decompressed_large.txt"
+    input_file = "uploaded_files/lab6_data_file.txt"
+    compressed_file = "uploaded_files/compressed_lab6_data_file.haffman.lzw"
+    decompressed_file = "uploaded_files/decompressed_lab6_data_file.txt"
 
-    with open(input_file, "rb") as fileA:
-        with open(encoded_file, "wb") as fileB:
-            fileB.write(compress(fileA.read()))
+    ...  # / Compress
+    with (
+        open(input_file, "rb") as i_file,
+        open(compressed_file, "wb") as c_file,
+    ):
+        c_file.write(compress(i_file.read()))
 
-    with open(encoded_file, "rb") as fileA:
-        with open(decoded_file, "wb") as fileB:
-            fileB.write(decompress(fileA.read()))
+    ...  # / Decompress
+    with (
+        open(compressed_file, "rb") as c_file,
+        open(decompressed_file, "wb") as d_file,
+    ):
+        d_file.write(decompress(c_file.read()))
 
-    with open(input_file, "rb") as fileA:
-        with open(decoded_file, "rb") as fileB:
-            assert fileA.read() == fileB.read()
+    ...  # / Validation
+    with (
+        open(input_file, "rb") as i_file,
+        open(decompressed_file, "rb") as d_file,
+    ):
+        assert i_file.read() == d_file.read()
 
     ...  # return None
 

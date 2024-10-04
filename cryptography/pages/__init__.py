@@ -9,6 +9,7 @@ from cryptography.pages.lab4_page import lab4_page
 from cryptography.pages.lab5_page import lab5_page
 from cryptography.pages.lab6_page import lab6_page
 from cryptography.pages.lab7_page import lab7_page
+from cryptography.pages.lab8_page import lab8_page
 from cryptography.pages.settings import settings
 
 
@@ -21,5 +22,6 @@ __all__ = (
     "lab5_page",
     "lab6_page",
     "lab7_page",
+    "lab8_page",
     "settings",
 )

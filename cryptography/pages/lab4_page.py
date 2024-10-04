@@ -16,7 +16,7 @@ def lab4_page() -> rx.Component:
             "ключ длиной 16 бит, реализуя в алгоритме шифрования методику DES.",
             size="4",
         ),
-        rx.text(f"Rounds: {Lab4State.rounds}"),
+        rx.text(f"Кол-во раундов: {Lab4State.rounds}"),
         rx.slider(
             default_value=Lab4State.rounds,
             min=4,
@@ -24,7 +24,7 @@ def lab4_page() -> rx.Component:
             on_value_commit=Lab4State.on_rounds_commit,
             width="40%",
         ),
-        rx.text(f"Block Size: {Lab4State.block_size}"),
+        rx.text(f"Размер блока (в битах): {Lab4State.block_size}"),
         rx.slider(
             default_value=Lab4State.block_size,
             min=8,
@@ -33,7 +33,7 @@ def lab4_page() -> rx.Component:
             on_value_commit=Lab4State.on_block_size_commit,
             width="40%",
         ),
-        rx.text(f"Key Size: {Lab4State.key_size}"),
+        rx.text(f"Размер ключа (в битах): {Lab4State.key_size}"),
         rx.slider(
             default_value=Lab4State.key_size,
             min=8,
