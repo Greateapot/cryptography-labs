@@ -1,4 +1,4 @@
-from math import ceil, log2
+from math import ceil
 
 
 def encrypt_block(
@@ -50,8 +50,8 @@ def encrypt(
     key_size: int = 16,
 ) -> bytes:
     assert rounds > 0
-    assert block_size > 7 and log2(block_size).is_integer()
-    assert key_size > 7 and log2(key_size).is_integer()
+    assert block_size > 7 and block_size % 8 == 0
+    assert key_size > 7 and block_size % 8 == 0
 
     block_size = block_size // 8
     key_size = key_size // 8
@@ -90,8 +90,8 @@ def decrypt(
     key_size: int = 16,
 ) -> bytes:
     assert rounds > 0
-    assert block_size > 7 and log2(block_size).is_integer()
-    assert key_size > 7 and log2(key_size).is_integer()
+    assert block_size > 7 and block_size % 8 == 0
+    assert key_size > 7 and block_size % 8 == 0
 
     block_size = block_size // 8
     key_size = key_size // 8

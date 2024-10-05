@@ -30,7 +30,7 @@ def lab6_page() -> rx.Component:
                 on_click=Lab6State.encrypt(rx.upload_files(upload_id=UPLOAD_TAG)),
             ),
             rx.button(
-                "Расжать",
+                "Разжать",
                 on_click=Lab6State.decrypt(rx.upload_files(upload_id=UPLOAD_TAG)),
             ),
             rx.button(
